@@ -1,0 +1,29 @@
+{
+  "name": "browserstack-key-rotate",
+  "version": "0.0.1",
+  "description": "A key rotator for browserstack",
+  "main": "rotate.js",
+  "scripts": {
+    "lint": "prettier --check rotate.js",
+    "lint:fix": "prettier --write rotate.js",
+    "rotate": "node rotate.js"
+  },
+  "author": "Samuel Barker <dev@sam-barker.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "husky": "^3.0.4",
+    "prettier": "^1.18.2"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint:fix"
+    }
+  }
+}
