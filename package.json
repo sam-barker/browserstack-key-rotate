@@ -2,11 +2,13 @@
   "name": "browserstack-key-rotate",
   "version": "0.0.1",
   "description": "A key rotator for browserstack",
-  "main": "rotate.js",
+  "main": "src/main.js",
   "scripts": {
-    "lint": "prettier --check rotate.js",
-    "lint:fix": "prettier --write rotate.js",
-    "rotate": "node rotate.js"
+    "lint": "prettier --check src/**/*.js",
+    "lint:fix": "prettier --write src/**/*.js",
+    "rotate": "node src/main.js",
+    "test": "yarn run lint:fix && yarn run test:unit",
+    "test:unit": "nyc ava"
   },
   "author": "Samuel Barker <dev@sam-barker.co.uk>",
   "license": "ISC",
@@ -15,16 +17,31 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "ava": "^2.3.0",
     "husky": "^3.0.4",
-    "prettier": "^1.18.2"
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2",
+    "sinon": "^7.4.1"
   },
   "prettier": {
     "singleQuote": true
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run lint:fix",
+      "pre-commit": "yarn run test",
       "post-checkout": "yarn install"
     }
+  },
+  "nyc": {
+    "all": true,
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100,
+    "check-coverage": true,
+    "exclude": [
+      "src/main.js",
+      "**/*.test.js"
+    ]
   }
 }

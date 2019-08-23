@@ -20,3 +20,9 @@ on how to set up a cron job on your machine.
 
 ## Why can't the script find my file?
 Use `$HOME` in your `KEY_LOCATION` environment variable, not `~`.
+
+## Development
+* `yarn run rotate` rotates your keys
+* `yarn run lint:fix` runs prettier and fixes any errors
+* `yarn run test:unit` will run ava unit tests
+* `yarn run test` will run linting and unit tests
