@@ -1,3 +1,6 @@
+/**
+ * Gets the environment variables if they're defined
+ */
 const getEnvVars = () => {
   const { BROWSERSTACK_KEY, BROWSERSTACK_USER, KEY_LOCATION } = process.env;
 

@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+/**
+ * Returns the file containing the browserstack key as a UTF8 string
+ * @param {string} keyLocation The absolute path of the file containing the browserstack key
+ * @param {string} browserstackKey The browserstack key itself
+ */
 const getPreviousKeyFile = (keyLocation, browserstackKey) => {
   if (!fs.existsSync(keyLocation)) {
     throw new Error(

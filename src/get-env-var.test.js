@@ -1,6 +1,9 @@
 const test = require('ava');
 const { getEnvVars } = require('./get-env-vars');
 
+/**
+ * Reset all of our environment variables
+ */
 const resetEnvVars = () => {
   delete process.env.BROWSERSTACK_KEY;
   delete process.env.BROWSERSTACK_USER;
